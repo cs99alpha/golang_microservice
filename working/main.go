@@ -1,16 +1,15 @@
 package main
 
 import (
+	"go_ms/handlers"
 	"log"
 	"net/http"
 	"os"
-
-	"./handlers"
 )
 
 func main() {
 	l := log.New(os.Stdout, "product-api", log.LstdFlags)
-	hh := handlers.NewHello()
+	hh := handlers.NewHello(l)
 
 	sm := http.NewServeMux()
 	sm.Handle("/", hh)
